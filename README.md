@@ -20,7 +20,7 @@
 
 You can try the project here:
 
-👉 **https://codecollab.netlify.app**
+👉 **https://c0de-c0llab-cc.netlify.app/**
 
 ---
 
