@@ -1,0 +1,95 @@
+.projects-container {
+  padding: 40px;
+}
+
+.projects-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Card */
+.project-card {
+  width: 220px;
+  height: 120px;
+  background: #1e293b;
+  border-radius: 12px;
+  padding: 16px;
+  color: white;
+  cursor: pointer;
+  transition: 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.project-card:hover {
+  background: #334155;
+  transform: translateY(-4px);
+}
+
+/* Header (Title + menu aligned properly) */
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Title */
+.project-title {
+  font-size: 16px;
+  font-weight: 600;
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/* Menu wrapper */
+.menu-wrapper {
+  position: relative;
+}
+
+/* Menu button */
+.menu-btn {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  opacity: 0;
+  transition: 0.2s ease;
+}
+
+.project-card:hover .menu-btn {
+  opacity: 1;
+}
+
+.menu-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Dropdown */
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 30px;
+  background: #0f172a;
+  border-radius: 8px;
+  padding: 6px 0;
+  width: 130px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.dropdown-menu div {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.dropdown-menu div:hover {
+  background: #334155;
+}

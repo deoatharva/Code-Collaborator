@@ -1,0 +1,63 @@
+
+create table rooms (
+  id uuid primary key default uuid_generate_v4(),
+  title text,
+  code text default '',
+  created_at timestamp default now()
+);
+
+new 
+create table profiles (
+  id uuid primary key references auth.users(id) on delete cascade,
+  email text,
+  created_at timestamp default now()
+);
+
+create table rooms (
+  id uuid primary key default uuid_generate_v4(),
+  title text,
+  owner_id uuid references auth.users(id),
+  created_at timestamp default now()
+);
+
+create table room_members (
+  id uuid primary key default uuid_generate_v4(),
+  room_id uuid references rooms(id) on delete cascade,
+  user_id uuid references auth.users(id) on delete cascade,
+  role text default 'editor', -- editor or viewer
+  created_at timestamp default now()
+);
+
+create table room_code (
+  room_id uuid primary key references rooms(id) on delete cascade,
+  code text default ''
+);
+
+create table if not exists rooms (.........)
+
+alter table rooms
+add column owner_id uuid references auth.users(id);
+
+create policy "Users can see their rooms"
+on rooms for select
+using (
+  auth.uid() = owner_id
+  OR
+  auth.uid() IN (
+    select user_id from room_members where room_id = rooms.id
+  )
+);
+
+drop table if exists room_code cascade;
+
+create table files (
+  id uuid primary key default uuid_generate_v4(),
+  room_id uuid references rooms(id) on delete cascade,
+  name text,
+  content text default '',
+  created_at timestamp default now()
+);
+
+alter table files
+add column parent_id uuid references files(id) on delete cascade,
+add column type text default 'file';
