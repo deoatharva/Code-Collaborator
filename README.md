@@ -2,7 +2,7 @@
 
 > A collaborative coding platform built with React where developers can write, share, and collaborate on code in real time.
 
-🌐 **Live Demo:** https://codecollab.netlify.app
+🌐 **Live Demo:** https://c0de-c0llab-cc.netlify.app/
 
 ---
 
